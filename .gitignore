@@ -3,5 +3,7 @@ venv/
 __pycache__/
 processed/
 raw/
+results/
+logs/
 
 datasets/
