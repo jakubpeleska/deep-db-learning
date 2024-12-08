@@ -1,36 +1,27 @@
-# Deep Learning for Relational Databases
+# Transformers Meet Relational Databases
 
-This repository contains code accompanying the paper [A Deep Learning Blueprint for Relational Databases](https://openreview.net/forum?id=b4GEmjsHAB)
+The repository with the framework and experiments discussed in the article [Transformers Meet Relational Databases](https://arxiv.org)
 
-**TL;DR:** (or [**video**](https://www.youtube.com/watch?v=1QUQogj_xmI&ab_channel=TableRepresentationLearning))\
-A _modular_ message-passing scheme reflecting the _relational model_ for **end-to-end deep learning from databases**
+#### _A study on integrating transformer architectures with relational databases via a modular message-passing framework, demonstrating enhanced performance._
 
 ## About
 
-The system allows to easily connect to any database through a simple connection string (with [SQL Alchemy](https://www.sqlalchemy.org/)), load information from the DB (with [Pandas](https://pandas.pydata.org/)), _**automatically analyze**_ its schema structure and data columns' semantics, and efficiently load and embed the data into learnable ([torch](https://pytorch.org/)) tensor representations.
+The end-to-end nature of the system allows for streamlined integration of deep learning methods in the relational database settings. The pipeline allows for attaching any relational database easily through a simple connection string (with [SQL Alchemy](https://www.sqlalchemy.org/)). Special care is given to databases of the [CTU Relational repository](https://relational.fel.cvut.cz/), which are currently being further integrated with [RelBench](https://relbench.stanford.edu/) into a new [dataset library](https://github.com/jakubpeleska/ctu-relational-py). Furthermore the system _loads data_ from the DB (with [Pandas](https://pandas.pydata.org/)), _automatically analyzes_ its schema structure and column semantics, and efficiently loads and embeds the data into learnable ([PyTorch Frame](https://pytorch-frame.readthedocs.io)) tensor representations.
 
-The subsequent modular neural message-passing scheme operating on top of the resulting (two-level) _**multi-relational hypergraph representation**_ then builds on [**Pytorch Geometric**](https://pyg.org/), allowing to easily utilize any of its modules in the respective functional interfaces (_transformation, combination, aggregation_) of the _**deep relational blueprint**_:
+The subsequent modular neural message-passing scheme operates on top of the (two-level) _multi-relational hypergraph representation_. Utilizing [Pytorch Geometric](https://pyg.org/) to build such representation allows to utilize any of its modules readily, and together with the tabular transformers of [PyTorch Frame](https://pytorch-frame.readthedocs.io) creates a vast series of combinations available for instantiating the presented _deep learning blueprint_. One such instantiation is the proposed model _**DBFormer**_, illustrated below:
 
 ![schema.png](schema.png)
 
-For more information, please read the paper and/or feel free to [reach out](https://github.com/LukasZahradnik/deep-db-learning/discussions) directly to us!
+For more information, please read the paper and/or feel free to [reach out](https://github.com/jakubpeleska/deep-db-learning/discussions) directly to us!
 
-If you like the idea, you can cite the paper as:
-```
-@inproceedings{zahradnik2023deep,
-  title={A Deep Learning Blueprint for Relational Databases},
-  author={Zahradn{\'\i}k, Luk{\'a}{\v{s}} and Neumann, Jan and {\v{S}}{\'\i}r, Gustav},
-  booktitle={NeurIPS 2023 Second Table Representation Learning Workshop},
-  year={2023}
-}
-```
 ---
+
 ### Project Structure
 
 - `db_transformer` - the main module containing the:
-  -  `data` - loading, analysis, conversion, and embedding
-  -  `db` - connection, inspection, and schema detection
-  -  and the transformer-based instantiation of the blueprint
+  - `data` - loading, analysis, conversion, and embedding
+  - `db` - connection, inspection, and schema detection
+  - `nn` - deep learnign models, layers, training methods
 - `experiments` - presented in the paper, including baselines from:
   - Tabular models
   - Propositionalization
@@ -38,17 +29,11 @@ If you like the idea, you can cite the paper as:
   - Neural-symbolic integration
 
 and additionally some:
-- `datasets` - some selected DB datasets for debugging
-- `examples` - example scripts on data schema detection/conversion
+
+- `scripts` - some additional helper scripts
 
 ---
+
 ### Related
 
-There is also the [**PyNeuraLogic**](https://github.com/LukasZahradnik/PyNeuraLogic) framework that allows for a more flexible [_deep relational learning_](https://medium.com/tag/deep-relational-learning) with the DB relations, operations, queries, and more.
-- using [differentiable relational logic](https://github.com/GustikS/NeuraLogic), it allows to skip the intermediate transformation into (hyper)graph tensors, and operate directly with the relational (DB) representation.
-
-<p align="center">
-    <a href="https://pyneuralogic.readthedocs.io/en/latest/advanced/database_deep_learning.html">
-        <img src="https://github.com/LukasZahradnik/PyNeuraLogic/blob/master/docs/_static/sql_banner.svg" alt="SQL tutorial" title="SQL tutorial"/>
-    </a>
-</p>
+[PyRelational](https://github.com/jakubpeleska/ctu-relational-py) is a currently developing library integration of datasets from the [CTU Relational repository](https://relational.fel.cvut.cz/) into representation proposed by the [RelBench project](https://github.com/snap-stanford/relbench) with the goal of further extending the field of Relational Deep Learning.
