@@ -10,7 +10,7 @@ from torch_frame import stype
 from torch_frame.data import StatType
 
 from .excelformer import create_excelformer_model
-from .honza import create_honza_model
+from .sage import create_sage_model
 from .mlp import create_mlp_model
 from .saint import create_saint_model
 from .tabnet import create_tabnet_model
@@ -22,7 +22,7 @@ from .trompt import create_trompt_model
 def create_blueprint_model(
     instance: Literal[
         "excelformer",
-        "honza",
+        "sage",
         "mlp",
         "saint",
         "tabnet",
@@ -40,8 +40,8 @@ def create_blueprint_model(
         return create_excelformer_model(
             defaults, col_names_dict, edge_types, col_stats_dict, config
         )
-    if instance == "honza":
-        return create_honza_model(
+    if instance == "sage":
+        return create_sage_model(
             defaults, col_names_dict, edge_types, col_stats_dict, config
         )
     if instance == "mlp":

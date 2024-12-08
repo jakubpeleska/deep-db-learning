@@ -14,7 +14,7 @@ from db_transformer.nn import BlueprintModel
 from .utils import get_decoder, get_encoder
 
 
-def create_honza_model(
+def create_sage_model(
     defaults: CTUDatasetDefault,
     col_names_dict: Dict[NodeType, Dict[stype, List[str]]],
     edge_types: List[EdgeType],
