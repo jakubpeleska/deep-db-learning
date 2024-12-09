@@ -1,6 +1,6 @@
 # Transformers Meet Relational Databases
 
-The repository with the framework and experiments discussed in the article [Transformers Meet Relational Databases](https://arxiv.org)
+The repository with the framework and experiments discussed in the article [Transformers Meet Relational Databases](https://arxiv.org/abs/2412.05218)
 
 #### _A study on integrating transformer architectures with relational databases via a modular message-passing framework, demonstrating enhanced performance._
 
@@ -12,7 +12,20 @@ The subsequent modular neural message-passing scheme operates on top of the (two
 
 ![schema.png](schema.png)
 
-For more information, please read the paper and/or feel free to [reach out](https://github.com/jakubpeleska/deep-db-learning/discussions) directly to us!
+For more information, please read the [paper](https://arxiv.org/abs/2412.05218) and/or feel free to [reach out](https://github.com/jakubpeleska/deep-db-learning/discussions) directly to us!
+
+Citation:
+```
+@misc{peleška2024transformersmeetrelationaldatabases,
+      title={Transformers Meet Relational Databases}, 
+      author={Jakub Peleška and Gustav Šír},
+      year={2024},
+      eprint={2412.05218},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2412.05218}, 
+}
+```
 
 ---
 
